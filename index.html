@@ -1,616 +1,759 @@
-<!-- /*
-* Template Name: A21studio
-* Template Author: Untree.co
-* Tempalte URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="victordami.netlify.app">
-  <link rel="shortcut icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="description" content="" />
-  <meta name="keywords" content="" />
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance Developer</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monserrat|Audiowide|Jersey+15">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600, 700,900|Oswald:400,700" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
 
+        body {
+            background-color: #121212;
+            margin: 0;
+            font-family: "Monserrat", sans-serif;
+            color: #ffffff;
+            padding: 0 20px;
+        }
 
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
 
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
-  <link rel="stylesheet" href="css/jquery-ui.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+        #sun-icon {
+            font-size: 24px;
+            display: block;
+        }
 
-  <link rel="stylesheet" href="css/aos.css">
-  <link rel="stylesheet" href="css/fancybox.min.css">
+        #moon-icon {
+            font-size: 24px;
+            display: none;
+        }
 
-  <link rel="stylesheet" href="css/style.css">
+        .toggle-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
 
+        body.light-mode {
+            background-color: white;
+            color: #3B3636;
+        }
 
-  
-  <title>A21studio &mdash;Photography Website</title>
+        body.light-mode .toggle-btn {
+            background-color: #f39c12;
+        }
 
+        body.light-mode #sun-icon {
+            display: none;
+        }
 
+        body.light-mode #moon-icon {
+            display: block;
+        }
 
+        .hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivB2n4YKt816UOj2e2FMrCSZQfh68FHEkO5j7SkHhP44JuUqid_gYUl3y1IkUg6tBIv0x5bEReCuT2Yys-BLAPsoC6baNVOuzszU-OQJ3n-cZ5CNzsiNL1O3r4Ao2Uivvz_UlUTSGIRRRZ/s1600/wallpaper-grey-simple-4k.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.08;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .light-mode .hero {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #FFF1F1;
+            border-radius: 10px;
+            box-shadow: none;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        h1 {
+            margin: 0 20px 0 0;
+            font-family: "Audiowide", sans-serif;
+            font-size: 40px;
+            color: rgb(113, 113, 113);
+        }
+
+        h3 {
+            font-family: "Audiowide", sans-serif;
+        }
+
+        .light-mode h1 {
+            margin: 0 20px 0 0;
+            font-family: "Audiowide", sans-serif;
+            font-size: 40px;
+            color: #3B3636;
+        }
+
+        #typed {
+            font-size: 45px;
+            font-family: "Audiowide", sans-serif;
+        }
+
+        .typed-cursor {
+            font-size: 70px;
+        }
+
+        p .name {
+            font-size: 90px;
+            margin: 10px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        .light-mode .name {
+            font-size: 90px;
+            margin: 10px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        .descript-2 {
+            color: rgb(113, 113, 113);
+            margin: 20px 0;
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        .image1 {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 20px;
+            border: 5px solid #ffffff;
+        }
+
+        .light-mode .image1 {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 20px;
+            border: 5px solid #3B3636;
+        }
+
+        .buttons {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .button {
+            font-family: "Audiowide", sans-serif;
+            color: #ffffff;
+            background: rgb(91, 91, 91);
+            border: 2px solid white;
+            font-size: 14px;
+            padding: 12px 20px;
+            margin-right: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+            cursor: pointer;
+        }
+
+        .light-mode .button {
+            border: none;
+        }
+
+        .button:hover {
+            background-color: rgb(117, 117, 117);
+            transform: translateY(-2px);
+        }
+
+        .button.download {
+            width: 200px;
+            border-radius: 0;
+        }
+
+        .about-section {
+            margin: 50px 0;
+        }
+
+        .about,
+        .con-head {
+            font-size: 35px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+        }
+
+        .light-mode .story {
+            color: black;
+        }
+
+        .separator {
+            width: 300px;
+            height: 3px;
+            background-color: #424242;
+            margin: 15px auto;
+            border-radius: 5px;
+        }
+
+        .story {
+            color: rgb(200, 200, 200);
+            font-family: "Audiowide", sans-serif;
+            flex-direction: column;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(to left, #000000, #0b141b);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            line-height: 1.8;
+        }
+
+        .light-mode .story {
+            background: linear-gradient(to left, #8d7d7d, #8b9199);
+            color: white;
+        }
+
+        .skills-container {
+            display: flex;
+            align-items: stretch;
+            margin: 0 auto;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+
+        .skills-section {
+            width: 70%;
+            margin-right: 20px;
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: #242424;
+            border-radius: 5px;
+            margin: 10px 0;
+            position: relative;
+            height: 30px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #5B5B5B;
+            transition: width 0.3s;
+        }
+
+        .skill-name {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            z-index: 1;
+            font-family: "Audiowide", sans-serif;
+        }
+
+        .percentage-indicator {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-family: "Audiowide", sans-serif;
+        }
+
+        .divider {
+            width: 2px;
+            background-color: #5B5B5B;
+            height: auto;
+            margin: 0 20px;
+        }
+
+        .light-mode .divider {
+            width: 2px;
+            background-color: #000000;
+            height: auto;
+            margin: 0 20px;
+        }
+
+        .additional-info {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+        }
+
+        .additional-info p {
+            margin: 10px 0;
+            color: rgb(200, 200, 200);
+            font-size: 16px;
+        }
+
+        .light-mode .additional-info p {
+            margin: 10px 0;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+        }
+
+        .contact-section {
+            margin: 50px 0;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(30, 30, 30, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .light-mode .contact-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FAF4F2;
+            border-radius: 10px;
+            box-shadow: none;
+        }
+
+        .contact-info {
+            width: 45%;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            color: rgb(200, 200, 200);
+            font-size: 18px;
+        }
+
+        .light-mode .contact-info p {
+            margin-bottom: 15px;
+            color: #3B3636;
+            font-size: 18px;
+        }
+
+        .contact-info p i {
+            margin-right: 8px;
+            color: white;
+            font-size: 20px;
+        }
+
+        .light-mode .contact-info p i {
+            margin-right: 8px;
+            color: #3B3636;
+            font-size: 20px;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-right: 15px;
+            font-size: 30px;
+        }
+
+        .light-mode .social-icons a {
+            color: #3B3636;
+            margin-right: 15px;
+            font-size: 30px;
+        }
+
+        .contact-form {
+            width: 50%;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background-color: #1C1C1C;
+            padding: 12px;
+            margin: 10px 0;
+            width: 90%;
+            border: 2px solid #ffffff;
+            color: white;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .light-mode .contact-form input,
+        .light-mode .contact-form textarea {
+            background-color: #FAF4F2;
+            padding: 12px;
+            margin: 10px 0;
+            width: 90%;
+            border: 2px solid #000000;
+            color: white;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: white;
+        }
+
+        .light-mode .contact-form input::placeholder,
+        .light-mode .contact-form textarea::placeholder {
+            color: #000000;
+        }
+
+        .contact-form textarea {
+            height: 100px;
+        }
+
+        .message-head {
+            font-size: 24px;
+            color: rgb(200, 200, 200);
+            margin-bottom: 20px;
+        }
+
+        .light-mode .message-head {
+            font-size: 24px;
+            color: rgb(0, 0, 0);
+            margin-bottom: 20px;
+        }
+
+        .profile-picture {
+            display: none;
+        }
+
+        .button-3 {
+            padding: 12px 20px;
+            margin-top: 10px;
+            border: 2px solid #ffffff;
+            background-color: #1C1C1C;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: "Audiowide", sans-serif;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .light-mode .button-3 {
+            padding: 12px 20px;
+            margin-top: 10px;
+            border: 2px solid #1C1C1C;
+            background-color: #FAF4F2;
+            color: #1c1c1c;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: "Audiowide", sans-serif;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button-3:hover {
+            background-color: rgb(138, 138, 138);
+            transform: translateY(-2px);
+        }
+
+        .map-container {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .light-mode .map-container {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            border: 2px solid black;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .profile-picture {
+                display: block;
+                position: absolute;
+                top: 18px;
+                left: 10px;
+                width: 46.75px;
+                height: 46.75px;
+                border-radius: 60%;
+                border: 2px solid white;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .light-mode .profile-picture {
+                display: block;
+                position: absolute;
+                top: 18px;
+                left: 10px;
+                width: 46.75px;
+                height: 46.75px;
+                border-radius: 60%;
+                border: 2px solid rgb(0, 0, 0);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .skills-section {
+                width: 100%;
+            }
+
+            .skill-name {
+                font-size: 12px;
+            }
+
+            .percentage-indicator {
+                font-size: 12px;
+            }
+
+            #typed {
+                font-size: 24px;
+                font-family: "Audiowide", sans-serif;
+            }
+
+            .typed-cursor {
+                font-size: 30px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .name {
+                font-size: 60px;
+            }
+
+            .image1 {
+                width: 250px;
+                height: 250px;
+            }
+
+            .image1 {
+                display: none;
+            }
+
+            .button {
+                font-size: 12px;
+            }
+
+            .button.download {
+                width: 100px;
+            }
+
+            .additional-info {
+                max-width: 100%;
+            }
+
+            .contact-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-info,
+            .contact-form {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .map-container {
+                width: 100%;
+                max-width: none;
+            }
+        }
+    </style>
 </head>
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200">
+<body>
+    <img src="https://i.postimg.cc/2yq77CK1/easy-png.jpg" class="profile-picture" alt="Profile Picture">
 
-   <!-- Preloader -->
-   <div id="preloader">
-    <div class="spinner">
-        <div class="logo">
-            <img src="images/A211 copy.png" alt="A21studio Logo">
+    <button id="light-mode-toggle" class="toggle-btn">
+        <span id="sun-icon" class="icon">☀️</span>
+        <span id="moon-icon" class="icon">🌙</span>
+    </button>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="title">Freelance Developer</h1>
+
+            <div id="typed-strings">
+                <p class="name">Imonieroh DAVID</p>
+                <p class="name">Photographer, Web Dev</p>
+            </div>
+            <span id="typed"></span>
+
+            <p class="descript-2">“Design is not just what it looks like and feels like. Design is how it works.” -
+                Steve Jobs</p>
+            <div class="buttons">
+                <button class="button button-1"
+                    onclick="document.getElementById('contact-section').scrollIntoView();">CONTACT ME</button>
+                <button class="button button-2"
+                    onclick="document.getElementById('about-section').scrollIntoView();">ABOUT</button>
+                <button class="button download" onclick="window.open('resume.pdf', '_blank')">Download Resume</button>
+            </div>
+        </div>
+        <img class="image1" src="https://i.postimg.cc/2yq77CK1/easy-png.jpg" alt="Developer Image">
+    </div>
+
+
+    <div class="about-section" id="about-section">
+        <p class="about">ABOUT</p>
+        <div class="separator"></div>
+        <p class="story">I am a passionate web developer with expertise in building responsive, user-friendly websites
+            and web applications. I work with a variety of technologies, including HTML, CSS, JavaScript, and frameworks
+            such as React, Angular, and Vue.js. I am also skilled in backend development using Node.js, PHP, and
+            databases like MySQL and MongoDB. My focus is on delivering clean, efficient code and creating seamless
+            experiences across all devices. Whether building from scratch or enhancing existing projects, I’m dedicated
+            to producing high-quality solutions that meet both functional and aesthetic requirements.</p>
+
+        <div class="skills-container">
+            <div class="skills-section">
+                <h3 class="skills">Core Competencies</h3>
+
+                <div class="progress-container">
+                    <div class="skill-name">WEB DESIGN</div>
+                    <div class="progress-bar" style="width: 75%;"></div>
+                    <div class="percentage-indicator">75%</div>
+                </div>
+                <div class="progress-container">
+                    <div class="skill-name">PHOTOGRAPHY</div>
+                    <div class="progress-bar" style="width: 70%;"></div>
+                    <div class="percentage-indicator">70%</div>
+                </div>
+                <div class="progress-container">
+                    <div class="skill-name">PHOTOSHOP</div>
+                    <div class="progress-bar" style="width: 75%;"></div>
+                    <div class="percentage-indicator">75%</div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="additional-info">
+                <p>Age: 16</p>
+                <p>Location: Lagos</p>
+                <p>Experience: 1 year</p>
+                <p>Key Skills: HTML, CSS, JavaScript</p>
+            </div>
         </div>
     </div>
-</div>
-<script>
-  // Wait for the entire page to load
-  window.addEventListener('load', function() {
-      // Hide the preloader
-      var preloader = document.getElementById('preloader');
-      preloader.style.display = 'none';
 
-      // Show the main content
-      var content = document.getElementById('content');
-      content.style.display = 'block';
+    <div class="contact-section" id="contact-section">
+        <p class="con-head">Contact Me</p>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p><i class="fa fa-map-marker"></i><strong>Location:</strong> Lagos,Nigeria</p>
+                <p><i class="fa fa-envelope"></i><strong>Email:</strong> davidthegod48@gmail.com</p>
+                <p><i class="fa fa-phone"></i><strong>Call:</strong> (+234) 9022228629</p>
+                <!-- Map Container -->
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.238251261045!2d3.874576275682919!3d7.327115613301962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10398e7af2bddd35%3A0xc51cd35a1d00c3c2!2sLead%20City%20University%2C%20Ibadan!5e0!3m2!1sen!2sng!4v1737488186126!5m2!1sen!2sng"
+                        width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <!-- Social Icons -->
+                <div class="social-icons" style="margin-top: 20px;">
+                    <a href="mailto:davidthegod48@gmail.com?subject=Hello" target="_blank"><i
+                            class="fa fa-envelope"></i></a>
+                    <a href="https://github.com/PrinceDace" target="_blank"><i class="fa fa-github"></i></a>
+                    <a href="https://www.instagram.com/234.daces_g?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        target="_blank"><i class="fa fa-instagram"></i></a>
+                    <a href="https://wa.me/2349022228629" target="_blank"><i class="fa fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <p class="message-head">You can contact me below:</p>
+                <input class="fname" type="text" id="fname" name="firstname" placeholder="Your Name" required>
+                <input class="email" type="email" id="email" name="email" placeholder="Your Email" required>
+                <input class="lname" type="text" id="lname" name="lastname" placeholder="Subject" required>
+                <textarea class="msg" id="message" name="message" placeholder="Message" required></textarea>
+                <button type="submit" class="button-3">Send Message</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        const toggleButton = document.getElementById('light-mode-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
 
       
-  });
-
-
-  function validateForm() {
-  var form = document.getElementById('contactForm');
-  var isValid = form.checkValidity();
-  if (!isValid) {
-    document.getElementById('formError').style.display = 'block'; // Show error message
-  } else {
-    document.getElementById('formError').style.display = 'none'; // Hide error message
-  }
-  return isValid; // Return whether the form is valid to allow submission or not
-}
-</script>
-  <div class="site-wrap">
-
-    <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
-
-    <header class="header-bar d-flex d-lg-block align-items-center site-navbar-target" data-aos="fade-right">
-      <div class="site-logo">
-        <!-- <a href="index.html">A21studio</a> -->
-        <a href="index.html"><img src="images/A21.png" alt="" height="46.75px" width="115px"></a>
-
-      </div>
-
-      <div class="d-inline-block d-lg-none ml-md-0 ml-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle "><span class="icon-menu h3"></span></a></div>
-
-      <div class="main-menu">
-        <ul class="js-clone-nav">
-          <li><a href="#section-home" class="nav-link">Home</a></li>
-          <li><a href="#section-photos" class="nav-link">Photos</a></li>
-          <li><a href="#section-about" class="nav-link">About</a></li>
-          <li><a href="#section-testimonial" class="nav-link">Testimonial</a></li>
-          <!-- <li><a href="#section-blog" class="nav-link">Blog</a></li> -->
-          <li><a href="#section-contact" class="nav-link">Contact</a></li>
-        </ul>
-        <ul class="social js-clone-nav">  
-          <li><a href="https://web.facebook.com/a21studio18" target="_blank"><span class="icon-facebook"></span></a></li>
-          <li><a href="https://www.instagram.com/a21studio_19/" target="_blank"><span class="icon-instagram"></span></a></li>
-          <!-- <li><a href="#"><span class="icon-twitter"></span></a></li> -->
-          <li><a href="https://www.linkedin.com/in/fadipe-abidemi-428217257/" target="_blank"><span class="icon-linkedin"></span></a></li>
-          <li><a href="https://wa.me/2349023999248?text=Hello%2C%20I%20would%20like%20to%20book%20a%20service
-            " target="_blank"><span class="icon-whatsapp"></span></a></li>
-        </ul>
-      </div>
-    </header> 
-    <main class="main-content">
-
-      <section class="site-section-hero bg-image mb-5" style="background-image: url('images/hero-min.jpg');"  data-stellar-background-ratio="0.5" id="section-home">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-md-7 text-center">
-            <h1 class=" heading text-uppercase text-white" data-aos="fade-up">A21studio</h1>
-            <p class="lead text-white mb-4" data-aos="fade-up" data-aos-delay="100">Transforming moments into timeless memories <br> with <a href="https://untree.co/">artistry and passion </a> at <a href="https://untree.co/license/" taget="_blank">A21studio.</a></p>
-            <p data-aos="fade-up" data-aos-delay="100"><a href="#section-contact" class="btn btn-primary btn-md smoothscroll">Available for hire</a></p>
-          </div>
-        </div>
-      </section>
-
-      <div class="container-fluid site-section">
-
-
-        <div class="row mb-3">
-          <div class="col-12 text-center">
-            <h2 class="heading">Photos</h2>
-          </div>
-        </div>
-
-        <section class="row align-items-stretch photos" id="section-photos">
-          <div class="col-12">
-            <div class="row align-items-stretch">
-
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
-                <a href="images/img_4.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_4.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <a href="images/img_5.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_5.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="images/img_1.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_1.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
-                <a href="images/img_2.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_2.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <a href="images/img_3.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_3.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="images/img_6.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_6.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
-                <a href="images/img_7.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_7.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <a href="images/img_8.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_8.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="images/img_9.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_9.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-
-
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
-                <a href="images/img_10.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_10.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <a href="images/img_1.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_1.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="images/img_2.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_2.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
-                <a href="images/img_3.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_3.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <a href="images/img_4.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_4.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="images/img_5.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_5.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
-                <a href="images/img_6.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_6.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <a href="images/img_7.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_7.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="images/img_8.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_8.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <a href="images/img_9.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_9.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <a href="images/img_4.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_4.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-              <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <a href="images/img_5.jpg" class="d-block photo-item" data-fancybox="gallery">
-                  <img src="images/img_5.jpg" alt="Image" class="img-fluid mb-0">
-                  <div class="photo-text-more">
-                    <span class="icon icon-eye"></span>
-                  </div>
-                </a>
-              </div>
-
-
-
-            </div>
-
-          </div>
-        </section> <!-- #section-photos -->
-
-        <section class="site-section" id="section-about">
-          <div class="container">
-            <div class="row justify-content-center">
-
-              <div class="col-md-8">
-
-                <!-- <h2 class="heading">About</h2> -->
-
-             <!--  <img src="images/img_1.jpg" alt="Image" class="img-fluid mb-4 w-50 rounded-circle"> -->
-
-                <div data-aos="fade-up"  data-aos-delay="100">
-                  <h2 class="">About A21studio</h2>
-                  <p>At A21studio, we capture your unique moments with creativity and passion. Our team is dedicated to telling your story through stunning, timeless images. Whether it's a wedding, a family portrait, or a corporate event, we bring expertise and personalized service to every shoot. Explore our portfolio and let us create beautiful memories together.
-
-                  </p>
-                  <p>A21studio is committed to excellence in every project we undertake. From weddings and family portraits to corporate events, we tailor our services to meet your specific needs, delivering high-quality results with a personal touch.</p>
-<!-- <p>
-                    Our studio is equipped with state-of-the-art technology, and we offer on-location shoots to capture the essence of your chosen setting. We believe in making the photography experience enjoyable and seamless, ensuring you feel comfortable and confident throughout. </p> -->
-                    
-                    <p>Explore our portfolio to see the artistry that defines A21studio. We are excited to work with you to create beautiful, lasting memories and make your vision come to life. Thank you for considering A21studio for your photography needs. Let’s capture your story together!</p>
-                    
-                  
-                    
-                    
-
-                  </p>
-                  <h3 class=" mt-5">Services</h3>
-                  
-                  <div class="d-block d-md-flex mt-5">
-                    <div class="mr-md-auto mr-2">
-                      <ul class="ul-check list-unstyled primary">
-                        <li>Wedding Photography</li>
-                        <li>Portrait Photography</li>
-                        <li>Event Photography</li>
-                      </ul>
-                    </div>
-                    <div class="mr-md-auto">
-                      <ul class="ul-check list-unstyled primary">
-                        <li>Commercial Photography</li>
-                        <li>On-Location Shoots</li>
-                        <li>Photo Editing & Retouching</li>
-                      </ul>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="site-section" id="section-testimonial">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-md-8 text-center">
-                <h2 class="heading">Testimonial</h2>
-
-                <div class="row justify-content-center">
-                  <div class="col-md-12">
-
-                    <div class="owl-carousel slide-one-item home-slider">
-
-                      <div class="testimony text-center px-md-7">
-                        <figure class="mx-auto d-inline-block">
-                          <img src="images/person_2.jpg" alt="Free Template by Untree.co" class="mx-auto img-fluid w-25 rounded-circle">
-                        </figure>
-                        <p class="text-black"><strong>Chuka & Amaka</strong></p>
-                        <blockquote>
-                          <p>&ldquo;A21studio perfectly captured the essence of our wedding day. Every photo is a beautiful reminder of our special moments. We couldn't be happier!&rdquo;</p>
-                        </blockquote>
-                      </div>
-
-                      <div class="testimony text-center px-md-4">
-                        <figure class="mx-auto d-inline-block">
-                          <img src="images/person_3.jpg" alt="Free Template by Untree.co" class="mx-auto img-fluid w-25 rounded-circle">
-                        </figure>
-                        <p class="text-black"><strong>Okiki Family</strong></p>
-                        <blockquote>
-                          <p>&ldquo;The team at A21studio is incredibly talented and professional. Our family portraits turned out amazing, and the entire experience was wonderful.&rdquo;</p>
-                        </blockquote>
-                      </div>
-
-                      <div class="testimony text-center px-md-4">
-                        <figure class="mx-auto d-inline-block">
-                          <img src="images/person_2.jpg" alt="Free Template by Untree.co" class="mx-auto img-fluid w-25 rounded-circle">
-                        </figure>
-                        <p class="text-black"><strong>Adewale Ogunleye</strong></p>
-                        <blockquote>
-                          <p>&ldquo;A21studio's attention to detail and creative approach made our corporate event photos stand out. We highly recommend their services.&rdquo;</p>
-                        </blockquote>
-                      </div>
-
-                      <div class="testimony text-center px-md-4">
-                        <figure class="mx-auto d-inline-block">
-                          <img src="images/person_3.jpg" alt="Free Template by Untree.co" class="mx-auto img-fluid w-25 rounded-circle">
-                        </figure>
-                        <p class="text-black"><strong>Folake Alabi, Marketing Director</strong></p>
-                        <blockquote>
-                          <p>&ldquo;I'm beyond impressed with the quality of the commercial photos A21studio delivered. They truly brought our products to life.&rdquo;</p>
-                        </blockquote>
-                      </div>
-
-                      <div class="testimony text-center px-md-4">
-                        <figure class="mx-auto d-inline-block">
-                          <img src="images/person_2.jpg" alt="Free Template by Untree.co" class="mx-auto img-fluid w-25 rounded-circle">
-                        </figure>
-                        <p class="text-black"><strong>Chinedu & Ngozi</strong></p>
-                        <blockquote>
-                          <p>&ldquo;A21studio made our engagement shoot unforgettable. The photos were breathtaking and captured our love perfectly. Highly recommend!&rdquo;</p>
-                        </blockquote>
-                      </div>
-
-                      <div class="testimony text-center px-md-4">
-                        <figure class="mx-auto d-inline-block">
-                          <img src="images/person_3.jpg" alt="Free Template by Untree.co" class="mx-auto img-fluid w-25 rounded-circle">
-                        </figure>
-                        <p class="text-black"><strong>Indigo Event Planning and Decoration</strong></p>
-                        <blockquote>
-                          <p>&ldquo;The professionalism and creativity of A21studio exceeded our expectations. The team was fantastic to work with, and the final images were stunning.&rdquo;</p>
-                        </blockquote>
-                      </div>
-
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-         <section class="site-section" id="section-blog">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-md-8">
-                <div class="row">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.8275481426176!2d3.348213711647917!3d6.668280493298926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9410cdaab9c5%3A0x9147e39a7eab94d3!2sA21%20Studio%20Photography!5e0!3m2!1sen!2sng!4v1734976044147!5m2!1sen!2sng" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> 
-
-
-          <section class="site-section" id="section-blog">
-            <div id="sbw_mmtxne"></div>
-
-        </section>
-
-        <section class="site-section" id="section-contact">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-md-8">
-                <h2 class="mb-5 heading">Contact</h2>
-                <form id="form" action="https://api.web3forms.com/submit" method="post" onsubmit="return submitForm(this);">
-                  <div class="row form-group">
-                    <input type="hidden" name="access_key" value="cda22b00-760c-4b03-b82a-6a1e803ad1ac">
-                    <input type="hidden" name="from_name" value="Mission Control">
-                    <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
-                    <div class="col-md-6 mb-3 mb-md-0">
-                      <label for="fname">First Name</label>
-                      <input type="text" id="fname" name="fname" class="form-control" required>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="lname">Last Name</label>
-                      <input type="text" id="lname" name="lname" class="form-control" required>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col-md-12">
-                      <label for="email">Email</label> 
-                      <input type="email" id="email" name="email" class="form-control" required>
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col-md-12">
-                      <label for="subject">Subject</label> 
-                      <input type="text" id="subject" name="subject" class="form-control" required>
-                    </div>
-                  </div>
-                  <div class="row form-group mb-5">
-                    <div class="col-md-12">
-                      <label for="message">Message</label> 
-                      <textarea name="message" id="message" cols="30" rows="7" class="form-control" required></textarea>
-                    </div>
-                  </div>
-                  <div id="result"></div>
-                  <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                  <div class="row form-group">
-                    <div class="col-md-12">
-                      <input type="submit" value="Send Message" class="btn btn-primary btn-md">
-                    </div>
-                 
-                  </div>
-                  
-                </form>
-                <div id="formError" style="display:none; color:red;">Please fill out all required fields.</div>
-              </div>
-            </div>
-          </div>
-        </section>
-        
-
-        <div class="row justify-content-center">
-          <div class="col-md-12 text-center py-5">
-            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="Victordami.netlify.com">Victordami.</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </main> 
-
-  </div> <!-- .site-wrap -->
-
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/lozad.min.js"></script>
-  <script src="sweetalert.min.js"></script>
-  
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="js/jquery.fancybox.min.js"></script>
-
-  <script src="js/main.js"></script>
-
-  <script>
-    function submitForm(form) {
-        swal({
-            title: "Form Submitted Successfully",
-            icon: "success",
+            if (document.body.classList.contains('light-mode')) {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
         });
-        return false;
-    }
-</script>
+    </script>
+    <script>
+        $(document).ready(function () {
+            var options = {
+                stringsElement: '#typed-strings',   
+                backSpeed: 40,                      
+                typeSpeed: 40,                       
+                loop: true                        
+            };
 
-  <script>
-    const form = document.getElementById('form');
-    const result = document.getElementById('result');
-    
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const object = Object.fromEntries(formData);
-      const json = JSON.stringify(object);
-      result.innerHTML = "Please wait..."
-    
-        fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.status == 200) {
-                    result.innerHTML = "Form submitted successfully";
-                } else {
-                    console.log(response);
-                    result.innerHTML = json.message;
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                result.innerHTML = "Something went wrong!";
-            })
-            .then(function() {
-                form.reset();
-                setTimeout(() => {
-                    result.style.display = "none";
-                }, 3000);
-            });
-    });
+            var typed = new Typed('#typed', options);  
+        });
     </script>
 
+</body>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  </body>
+</body>
+
 </html>
